@@ -34,13 +34,12 @@ const LoginComponent = (props: Props): JSX.Element => {
 
   return (
     <Grid textAlign='center' style={{ height: '100vh', background: '#000000', marginTop: '0rem' }} verticalAlign='middle'>
-      <Grid.Row columns={2} style={{maxWidth: 850}}>
-        <Grid.Column style={{maxWidth: 200}}>{<svg width="200" height="200">
-  <circle cx="100" cy="100" r="66" stroke="green" strokeWidth="4" fill="yellow" />
-</svg>}
-</Grid.Column>
-        <Grid.Column style={{maxWidth: 450}}>
-          <Segment padded={'very'} style={{ background: '#4f6e7e', border: 'solid 1px white' }}>
+      <Grid.Row columns={2} style={{maxWidth: 950}}>
+        <Grid.Column style={{maxWidth: 350}}>
+          <Image src='logo.png' size='medium' />
+        </Grid.Column>
+        <Grid.Column style={{maxWidth: 550}}>
+          <Segment padded style={{ background: '#4f6e7e', border: 'solid 1px #8bdefe' }}>
             <Form size='large'>
               <Form.Input
                 fluid={true}
@@ -64,7 +63,7 @@ const LoginComponent = (props: Props): JSX.Element => {
                 placeholder='OTP'
                 onChange={(e, data) => {handleChangeTOTP(data)}}
               />
-              <Button color='twitter' fluid={true} size='large' onClick={(e) => handleLogin()}>
+              <Button style={{background: '#8bdefe'}} fluid={true} size='large' onClick={(e) => handleLogin()}>
                 Login
               </Button>
             </Form>
