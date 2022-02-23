@@ -1,0 +1,7 @@
+permissions:
+  - title: Administrate User Accounts
+    identifier: administrate-users
+    description: allows the user to administrate user accounts
+  - title: Administrate e-mail Configuration
+    identifier: administrate-email-configuration
+    description: allows the user to administrate the email configuration and to test it

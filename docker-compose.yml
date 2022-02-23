@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+      args:
+        #django_db_engine: ${django_db_engine}
+        db_host: ${db_host}
+    env_file:
+      - ${env_file}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/opt/backend
+    networks:
+      vyrix-net:
+    depends_on:
+      - "${db_host}"
+
+  frontend:
+    stdin_open: true
+    build:
+      context: ${frontend_directory}
+      dockerfile: Dockerfile
+      args:
+        frontend_directory: ${frontend_directory}
+    ports:
+      - "8000:${port}"
+    volumes:
+      - "./${frontend_directory}:/src"
+    working_dir: /src
+    networks:
+      vyrix-net:
+    depends_on:
+      - backend
+networks:
+  vyrix-net:
